@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="route_smallCircleRadius">4dp</dimen>
+    <dimen name="route_bigCircleRadius">12dp</dimen>
+    <dimen name="route_selectedTextSize">15sp</dimen>
+    <dimen name="route_normalTextSize">15sp</dimen>
+</resources>

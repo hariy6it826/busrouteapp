@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">BusRoutes</string>
-    <string name="route_detail">Route Detail</string>
+    <string name="route_detail">Route Details</string>
     <string name="fetch_route_msg">Fetching the bus route list &#8230;</string>
 
 </resources>

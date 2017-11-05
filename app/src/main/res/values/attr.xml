@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Route">
+        <!-- The height or (thickness) of the bar -->
+        <attr name="smallCircleRadius" format="dimension"/>
+        <attr name="bigCircleRadius" format="dimension"/>
+        <attr name="selectedTextSize" format="dimension"/>
+        <attr name="normalTextSize" format="dimension"/>
+
+    </declare-styleable>
+
+</resources>

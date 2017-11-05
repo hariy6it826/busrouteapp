@@ -136,9 +136,25 @@ public class RouteModel {
         }
     }
 
-    public class Stops {
+    public static class Stops implements Parcelable{
         @SerializedName("name")
         private String name;
+
+        protected Stops(Parcel in) {
+            name = in.readString();
+        }
+
+        public static final Creator<Stops> CREATOR = new Creator<Stops>() {
+            @Override
+            public Stops createFromParcel(Parcel in) {
+                return new Stops(in);
+            }
+
+            @Override
+            public Stops[] newArray(int size) {
+                return new Stops[size];
+            }
+        };
 
         public String getName() {
             return name;
@@ -151,6 +167,16 @@ public class RouteModel {
         @Override
         public String toString() {
             return "ClassPojo [name = " + name + "]";
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(name);
         }
     }
 }
