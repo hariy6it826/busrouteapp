@@ -30,16 +30,24 @@
         android:layout_toEndOf="@+id/route_image"
         android:textSize="16sp" />
 
-    <com.example.busroute.ui.custom.Route
-        xmlns:custom="http://schemas.android.com/apk/res-auto"
+    <ImageView
+        android:id="@+id/accessibility"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/accesability"
+        android:visibility="gone" />
+
+    <com.example.busroute.ui.custom.Route xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:id="@+id/route"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/route_image"
         android:layout_marginTop="30dp"
         android:paddingTop="30dp"
-        custom:smallCircleRadius="@dimen/route_smallCircleRadius"
         custom:bigCircleRadius="@dimen/route_bigCircleRadius"
         custom:normalTextSize="@dimen/route_normalTextSize"
         custom:selectedTextSize="@dimen/route_selectedTextSize"
-        android:layout_below="@id/route_image"
-        android:layout_height="match_parent" />
+        custom:smallCircleRadius="@dimen/route_smallCircleRadius" />
 </RelativeLayout>
