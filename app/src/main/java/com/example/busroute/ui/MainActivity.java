@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         Log.d(TAG, "Route name: " + route.getName());
         Intent intent = new Intent(this, RouteDetailActivity.class);
         intent.putExtra("ROUTE_INFO", route);
+        intent.putExtra("STOPS_INFO", route.getStops());
         startActivity(intent);
     }
 
