@@ -49,11 +49,11 @@ public class Route extends View {
     public void onDraw(Canvas canvas) {
         paint.setColor(Color.BLACK);
         paint.setStrokeWidth(2);
-        drawTimerIndicators(canvas);
+        drawStops(canvas);
     }
 
 
-    private void drawTimerIndicators(Canvas canvas) {
+    private void drawStops(Canvas canvas) {
 
         float areaHeight = getHeight() - getPaddingTop() - getPaddingBottom();
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
@@ -80,23 +80,6 @@ public class Route extends View {
             cy = cy + factor;
         }
 
-    }
-
-    private void drawStrokeCircle(Canvas canvas, float x, float y) {
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(getResources().getColor(R.color.line_color));
-        paint.setTextSize(selectedTextSize);
-        Rect rect = new Rect();
-        String text = String.format("%02d", currentIndex + 1);
-        paint.getTextBounds(text, 0, text.length(), rect);
-        canvas.drawCircle(x, (y * 3) - (rect.height() / 2), bigCircleRadius, paint);
-        paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setColor(Color.WHITE);
-        canvas.drawCircle(x, (y * 3) - (rect.height() / 2), bigCircleRadius - 2, paint);
-        paint.setColor(getResources().getColor(R.color.line_color));
-        canvas.drawText(text, x - ((rect.left + rect.right) / 2), y * 3, paint);
-        paint.setStrokeWidth(5);
-        canvas.drawLine(x, y + smallCircleRadius, x, ((y * 3) - (rect.height() / 2)) - bigCircleRadius, paint);
     }
 
 }
