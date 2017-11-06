@@ -18,11 +18,10 @@ import com.example.busroute.data.remote.RouteModel;
  */
 public class Route extends View {
     private Paint paint = new Paint();
-    private float yStart, factor;
-    private int currentIndex = 0;
-    private float smallCircleRadius, bigCircleRadius, selectedTextSize, normalTextSize;
-    private int stopsCount =0;
-    private RouteModel.Stops [] stops;
+    private float bigCircleRadius, normalTextSize;
+    private int stopsCount = 0;
+    private RouteModel.Stops[] stops;
+
     public Route(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
@@ -33,13 +32,11 @@ public class Route extends View {
 
         //read xml attributes
         TypedArray ta = context.getTheme().obtainStyledAttributes(attrs, R.styleable.Route, 0, 0);
-        smallCircleRadius = ta.getDimensionPixelSize(R.styleable.Route_smallCircleRadius, 0);
         bigCircleRadius = ta.getDimensionPixelSize(R.styleable.Route_bigCircleRadius, 0);
-        selectedTextSize = ta.getDimensionPixelSize(R.styleable.Route_selectedTextSize, 0);
         normalTextSize = ta.getDimensionPixelSize(R.styleable.Route_normalTextSize, 0);
     }
 
-    public void initialise(RouteModel.Stops [] stops){
+    public void initialise(RouteModel.Stops[] stops) {
         stopsCount = stops.length;
         this.stops = stops;
         invalidate();
@@ -57,8 +54,7 @@ public class Route extends View {
 
         float areaHeight = getHeight() - getPaddingTop() - getPaddingBottom();
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        factor = areaHeight / 4;
-        yStart = getPaddingLeft();
+        float factor = areaHeight / 4;
         float cx = getWidth() / 4;
         float cy = getPaddingTop();
         Rect rect = new Rect();
@@ -72,10 +68,10 @@ public class Route extends View {
             text = stops[i].getName();
             paint.setColor(Color.BLACK);
             paint.getTextBounds(text, 0, text.length(), rect);
-            canvas.drawText(text, cx + (rect.width() / 2) + 20, cy - (rect.top + rect.bottom)/2, paint);
+            canvas.drawText(text, cx + (rect.width() / 2) + 20, cy - (rect.top + rect.bottom) / 2, paint);
             paint.setColor(getContext().getResources().getColor(R.color.line_color));
             paint.setStrokeWidth(10);
-            if(i < stopsCount -1)
+            if (i < stopsCount - 1)
                 canvas.drawLine(cx, cy, cx, cy + factor, paint);
             cy = cy + factor;
         }
